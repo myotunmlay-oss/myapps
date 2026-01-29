@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="my">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="referrer" content="no-referrer" />
+    <title>MyTV - Live Football</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Video.js Standard Assets -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <style>
+      :root {
+        --messenger-blue: #0084ff;
+        --cf-blue: #0051ff;
+        --cf-accent: #00d1ff;
+      }
+      html, body {
+        height: 100%;
+        background: #000000;
+      }
+      #root {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      body {
+        color: white;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #000; }
+      ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--cf-accent); }
+
+      /* Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+      .animate-marquee {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+      }
+
+      /* Cloudflare Stream Inspired Theme */
+      .vjs-theme-cf {
+        --vjs-theme-cf--primary: var(--cf-accent);
+      }
+      .video-js.vjs-theme-cf {
+        font-family: inherit;
+        background-color: #000;
+      }
+      .vjs-theme-cf .vjs-big-play-button {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border: none !important;
+        width: 70px !important;
+        height: 70px !important;
+        line-height: 70px !important;
+        border-radius: 50% !important;
+        top: 50% !important;
+        left: 50% !important;
+        margin-top: -35px !important;
+        margin-left: -35px !important;
+        backdrop-filter: blur(8px);
+        transition: all 0.2s ease;
+      }
+      .vjs-theme-cf:hover .vjs-big-play-button {
+        background-color: var(--vjs-theme-cf--primary) !important;
+        color: black !important;
+        transform: scale(1.05);
+      }
+      .vjs-theme-cf .vjs-control-bar {
+        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%) !important;
+        height: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 0 10px !important;
+      }
+      .vjs-theme-cf .vjs-button {
+        width: 40px !important;
+      }
+      .vjs-theme-cf .vjs-play-progress {
+        background-color: var(--vjs-theme-cf--primary) !important;
+      }
+      .vjs-theme-cf .vjs-play-progress:before {
+        display: none !important;
+      }
+      .vjs-theme-cf .vjs-slider {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        border-radius: 2px !important;
+        height: 3px !important;
+      }
+      .vjs-theme-cf .vjs-load-progress div {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+      }
+      .vjs-theme-cf .vjs-loading-spinner {
+        border: 3px solid rgba(0, 209, 255, 0.1) !important;
+        border-top-color: var(--cf-accent) !important;
+        width: 50px !important;
+        height: 50px !important;
+        margin-top: -25px !important;
+        margin-left: -25px !important;
+      }
+      .video-js video {
+        object-fit: contain !important;
+      }
+      .vjs-text-track-display {
+        bottom: 4em !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "firebase/": "https://esm.sh/firebase@^12.8.0/",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

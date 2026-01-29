@@ -1,0 +1,5 @@
+{
+  "name": "MyTV Live Premium Master",
+  "description": "A high-quality football live streaming platform with separate admin and user interfaces, featuring real-time data synchronization and multi-server support.",
+  "requestFramePermissions": []
+}
